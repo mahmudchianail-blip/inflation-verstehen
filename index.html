@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inflation einfach verstehen: Kurzquiz, sechs Themen und ein Kaufkraftrechner zur Gruppenpräsentation.">
+  <meta name="color-scheme" content="light">
+  <title>Inflation verstehen · Mitmachen & nachlesen</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt</a>
+  <header class="header"><a class="brand" href="#start">Inflation<span>verstehen.</span></a><nav aria-label="Seitennavigation"><a href="#quiz">Quiz</a><a href="#wissen">Wissen</a><a href="#rechner">Rechner</a></nav></header>
+  <main id="inhalt">
+    <section class="hero wrap" id="start">
+      <div class="hero-copy"><p class="eyebrow">Wirtschaft im Alltag</p><h1>Gleiches Geld.<br>Weniger im Korb?</h1><p class="lead">Warum Preise steigen, wie Inflation entsteht und was sie für uns bedeutet.</p><a class="button" href="#quiz">Zum Kurzquiz <span aria-hidden="true">↗</span></a><p class="small">3 Fragen · etwa 90 Sekunden · ohne Anmeldung</p></div>
+      <figure class="hero-photo"><img src="assets/market.jpg" alt="Frisches Obst und Gemüse in der Auslage eines Supermarkts" width="960" height="800"><figcaption>Preise begegnen uns jeden Tag.</figcaption></figure>
+    </section>
+    <section class="quiz-section" id="quiz"><div class="wrap quiz-wrap">
+      <div class="section-intro"><p class="eyebrow">01 / Mitmachen</p><h2>Was ist hängen geblieben?</h2><p>Drei Fragen aus dem Vortrag. Du bekommst zu jeder Antwort eine kurze Erklärung.</p></div>
+      <div class="quiz-box" id="quiz-box">
+        <div id="quiz-start"><p class="quiz-kicker">Dein Wissenstest</p><h3>Bereit für drei Fragen?</h3><p>Deine Antworten bleiben auf diesem Gerät. Es gibt keine Namenseingabe und keine Rangliste.</p><button class="button" id="start-quiz">Kurzquiz starten</button></div>
+        <div id="quiz-play" hidden><p class="quiz-kicker" id="progress"></p><div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div><h3 id="question" tabindex="-1"></h3><div id="answers" class="answers"></div><div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div><button id="next-question" class="button" hidden>Weiter</button></div>
+        <div id="quiz-result" hidden><p class="quiz-kicker">Dein Ergebnis</p><h3 id="score" tabindex="-1"></h3><p id="score-message"></p><div class="button-row"><button class="button" id="more-quiz">Drei Zusatzfragen</button><button class="button secondary" id="retry-quiz">Kurzquiz wiederholen</button></div><a class="text-link" href="#wissen">Die Themen noch einmal nachlesen</a></div>
+      </div>
+    </div></section>
+    <section class="wrap knowledge" id="wissen"><div class="section-intro"><p class="eyebrow">02 / Nachlesen</p><h2>Sechs Themen.<br>Ein Zusammenhang.</h2><p>Die wichtigsten Gedanken aus unserer Präsentation.</p></div><div id="lessons" class="lessons"></div></section>
+    <section class="calculator-section" id="rechner"><div class="wrap calculator-grid"><div><p class="eyebrow">03 / Ausprobieren</p><h2>Was bleibt von<br>deinem Geld?</h2><p>Verändere Betrag, Inflationsrate und Zeitraum. Sieh, wie sich der Preis desselben Warenkorbs und die Kaufkraft eines festen Geldbetrags entwickeln.</p><p class="assumption">Vereinfachtes Rechenmodell: Die jährliche Inflationsrate bleibt konstant. Der feste Geldbetrag wird nicht verzinst. Das Ergebnis ist keine Prognose.</p></div><div class="calc-box"><form id="calculator" novalidate><label for="amount">Ausgangsbetrag in Euro</label><input id="amount" name="amount" type="text" inputmode="decimal" value="100" aria-describedby="amount-help"><small id="amount-help">Zum Beispiel 100 oder 100,50. Maximal 1.000.000 €.</small><div class="input-pair"><div><label for="rate">Inflationsrate pro Jahr in %</label><input id="rate" name="rate" type="text" inputmode="decimal" value="5"><small>0 bis 100 %</small></div><div><label for="years">Zeitraum in Jahren</label><input id="years" name="years" type="text" inputmode="numeric" value="5"><small>0 bis 50 ganze Jahre</small></div></div><button class="button" type="submit">Berechnen</button><p id="calc-error" class="error" role="alert" hidden></p></form><div class="calc-results" id="calc-results" aria-live="polite"><p>Preis desselben Warenkorbs nach <span id="years-result">5 Jahren</span><strong id="future-price">127,63 €</strong></p><p>Kaufkraft des festen Geldbetrags, in heutigen Euro<strong id="purchasing-power">78,35 €</strong></p><p class="small" id="remaining">78,4 % der ursprünglichen Kaufkraft bleiben.</p><div class="purchasing-track" aria-hidden="true"><span id="purchasing-bar" style="width:78.4%"></span></div><details><summary>So wird gerechnet</summary><p>Preis = Betrag × (1 + Rate / 100)<sup>Jahre</sup></p><p>Kaufkraft = Betrag ÷ (1 + Rate / 100)<sup>Jahre</sup></p></details></div></div></div></section>
+    <section class="wrap glossary"><p class="eyebrow">04 / Begriffe</p><h2>Kurz erklärt</h2><dl><div><dt>Kaufkraft</dt><dd>Die Menge an Waren und Dienstleistungen, die man für einen Geldbetrag kaufen kann.</dd></div><div><dt>Inflationsrate</dt><dd>Prozentuale Veränderung eines Preisindex innerhalb eines angegebenen Zeitraums.</dd></div><div><dt>Nominallohn / Reallohn</dt><dd>Der Lohn in Euro / seine Kaufkraft unter Berücksichtigung der Preisentwicklung.</dd></div><div><dt>Nachfrageüberhang</dt><dd>Zum bisherigen Preis möchten Käufer mehr erwerben, als kurzfristig angeboten wird.</dd></div><div><dt>Disinflation</dt><dd>Die Inflationsrate sinkt. Solange sie positiv bleibt, steigen die Preise im Durchschnitt weiter.</dd></div><div><dt>Deflation</dt><dd>Das allgemeine Preisniveau sinkt über einen längeren Zeitraum.</dd></div></dl></section>
+    <section class="wrap sources" id="quellen"><p class="eyebrow">05 / Quellen</p><h2>Worauf wir uns stützen</h2><p>Fachinformationen von Destatis, Bundesbank, EZB, BaFin und IWF. Die Prozentgrenzen der Inflationsarten sind vereinfachte Orientierungen.</p><ul id="sources-list"></ul><details><summary>Bildnachweis und Nutzung</summary><p>Supermarkt-Foto: Pixabay / <a href="https://www.pexels.com/photo/grocery-store-264636/">Pexels</a>. Verwendet unter der <a href="https://www.pexels.com/license/">Pexels-Lizenz</a>. Das Foto zeigt eine allgemeine Alltagssituation und keinen Beleg für konkrete Preisänderungen.</p></details></section>
+  </main>
+  <footer class="footer wrap"><a class="brand" href="#start">Inflation<span>verstehen.</span></a><p>Lernprojekt zur Gruppenpräsentation · Stand: 28. Oktober 2026</p><p class="small">Keine Analysewerkzeuge, keine Namenseingabe und kein Versand von Quizantworten. Beim Seitenaufruf gelten die technischen Datenschutzbedingungen von GitHub Pages.</p></footer>
+  <noscript><div class="noscript">Bitte JavaScript aktivieren, um Quiz, Themenübersicht und Rechner zu nutzen. Die allgemeinen Informationen und Quellen sind auch im Präsentations-PDF enthalten.</div></noscript>
+</body>
+</html>
