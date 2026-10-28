@@ -16,6 +16,27 @@
     a.href = source.url; a.textContent = source.name; li.append(a); $('sources-list').append(li);
   });
 
+  // Each route presents only one task. Hash links also work on GitHub Pages.
+  const routes = {start:['start'], quiz:['quiz'], wissen:['wissen','begriffe'], rechner:['rechner'], quellen:['quellen']};
+  const routeNames = {start:'Übersicht',quiz:'Quiz',wissen:'Wissen',rechner:'Kaufkraftrechner',quellen:'Quellen'};
+  const panels = [...document.querySelectorAll('main > section')];
+  function navigate() {
+    let route = location.hash.slice(1) || 'start';
+    if (route === 'inhalt') { document.querySelector('main [data-active] h1, main [data-active] h2')?.focus(); return; }
+    if (!routes[route]) { route='start'; history.replaceState(null,'','#start'); }
+    panels.forEach(panel => { const active=routes[route].includes(panel.id); panel.hidden=!active; panel.toggleAttribute('data-active',active); });
+    document.body.dataset.view=route;
+    document.querySelector('.route-bar').hidden=route==='start';
+    $('route-label').textContent=routeNames[route];
+    document.querySelectorAll('.header nav a').forEach(a=>{ if(a.hash==='#'+route)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current'); });
+    document.title=routeNames[route]+' · Inflation verstehen';
+    const heading=$(routes[route][0]).querySelector('h1,h2');
+    if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  window.addEventListener('hashchange',navigate);
+  navigate();
+
   let questions = [], current = 0, score = 0, answered = false, extra = false;
   function start(useExtra) {
     extra = useExtra; questions = data.quiz.slice(useExtra ? 3 : 0, useExtra ? 6 : 3);
